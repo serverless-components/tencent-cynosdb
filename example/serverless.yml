@@ -1,0 +1,12 @@
+org: orgDemo
+app: appDemo
+stage: dev
+component: cynosdb@dev
+name: cynosdbDemo
+
+inputs:
+  region: ap-guangzhou
+  zone: ap-guangzhou-4
+  vpcConfig:
+    vpcId: 'vpc-p2dlmlbj'
+    subnetId: 'subnet-a1v3k07o'

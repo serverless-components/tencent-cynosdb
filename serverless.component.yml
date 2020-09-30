@@ -1,0 +1,11 @@
+name: cynosdb
+version: dev
+author: 'Tencent Cloud, Inc.'
+org: 'Tencent Cloud, Inc.'
+description: Deploy a serverless cynosdb database.
+keywords: 'tencent, serverless, cynosdb'
+repo: 'https://github.com/serverless-components/tencent-cynosdb/'
+readme: 'https://github.com/serverless-components/tencent-cynosdb/tree/master/README.md'
+license: MIT
+main: ./src
+webDeployable: true
