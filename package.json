@@ -1,6 +1,7 @@
 {
   "name": "@serverless/cynosdb",
   "main": "src/serverless.js",
+  "description": "腾讯云 CynosDB 组件",
   "publishConfig": {
     "access": "public"
   },
@@ -56,5 +57,26 @@
     "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
     "semantic-release": "^17.0.4"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "example",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serverless-components/tencent-cynosdb.git"
+  },
+  "keywords": [
+    "serverless-cynosdb",
+    "serverless",
+    "cynosdb",
+    "serverless-framework",
+    "serverless-components",
+    "tencent-cloud"
+  ],
+  "bugs": {
+    "url": "https://github.com/serverless-components/tencent-cynosdb/issues"
+  },
+  "homepage": "https://github.com/serverless-components/tencent-cynosdb#readme"
 }

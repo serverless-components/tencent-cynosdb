@@ -3,7 +3,8 @@ require('dotenv').config({
   path: path.join(__dirname, '..', '.env.test')
 })
 const { generateId, getServerlessSdk } = require('./utils')
-const path = require('path')
+const PWD_CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@#$%^&*_-';
+const pwdReg = new RegExp(`[${PWD_CHARS}]{8,64}`);
 
 // set enough timeout for deployment to finish
 jest.setTimeout(300000)
@@ -22,6 +23,8 @@ const instanceYaml = {
       vpcId: 'vpc-p2dlmlbj',
       subnetId: 'subnet-a1v3k07o',
     },
+    payMode: 0,
+    instanceCount: 1,
   }
 }
 
@@ -45,7 +48,7 @@ it('should successfully deploy cynosdb', async () => {
     region: instanceYaml.inputs.region,
     zone: instanceYaml.inputs.zone,
     vpcConfig: instanceYaml.inputs.vpcConfig,
-    instanceCount: 2,
+    instanceCount: 1,
     adminPassword: expect.stringMatching(pwdReg),
     clusterId: expect.stringContaining('cynosdbmysql-'),
     connection: {
@@ -58,6 +61,7 @@ it('should successfully deploy cynosdb', async () => {
         },
       ],
     },
+    vendorMessage: null,
   });
 })
 

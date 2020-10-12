@@ -2,15 +2,13 @@
 
 ## 简介
 
-腾讯云 CynosDB 组件通过使用 [Serverless Framework](https://github.com/serverless/components)，基于云上 Serverless 服务，实现“0”配置，便捷开发，可以快速方便的创建，部署和管理腾讯云的 Cynosdb 产品。
+腾讯云 CynosDB 组件通过使用 [Serverless Framework](https://github.com/serverless/components)，基于云上 Serverless 服务，可以快速方便的创建，部署和管理腾讯云的 Cynosdb 产品。
 
 特性介绍：
 
 - [x] **按需付费** - 按照请求的使用量进行收费，没有请求时无需付费。
 - [x] **极速部署** - 仅需几秒，创建或更新您的数据库。
 - [x] **便捷协作** - 通过云端数据库的状态信息和部署日志，方便的进行多人协作开发。
-
-<br/>
 
 ## 快速开始
 
@@ -61,7 +59,7 @@ inputs:
     subnetId: subnet-xxx
 ```
 
-- [更多配置](https://github.com/serverless-tencent/tencent-cynosdb/tree/master/docs/configure.md)
+- [更多配置](https://github.com/serverless-components/tencent-cynosdb/tree/master/docs/configure.md)
 
 > 注：当前仅支持 `北京三区，广州四区，上海二区，南京一区` 四个地域的创建和部署，因此在填写 yaml 中的地域可用区时需要注意填写为正确的地域和对应的 VPC 子网信息。
 

@@ -1,5 +1,5 @@
 name: cynosdb
-version: dev
+version: 0.1.0
 author: 'Tencent Cloud, Inc.'
 org: 'Tencent Cloud, Inc.'
 description: Deploy a serverless cynosdb database.
@@ -8,4 +8,48 @@ repo: 'https://github.com/serverless-components/tencent-cynosdb/'
 readme: 'https://github.com/serverless-components/tencent-cynosdb/tree/master/README.md'
 license: MIT
 main: ./src
-webDeployable: true
+webDeployable: false
+
+actions:
+  deploy:
+    definition: Deploy a serverless cynosdb database.
+    inputs:
+      region:
+        type: string
+        default: ap-guangzhou
+        description: Region for CynosDB deployed to
+        allow:
+          - ap-guangzhou
+          - ap-shanghai
+          - ap-beijing
+          - ap-nanjing
+      zone:
+        type: string
+        default: ap-guangzhou-4
+        description: Zone for CynosDB deployed to
+        allow:
+          - ap-guangzhou-4
+          - ap-shanghai-2
+          - ap-beijing-3
+          - ap-nanjing-1
+      vpcConfig:
+        type: object
+        description: VPC config
+        keys:
+          vpcId:
+            type: string
+            required: true
+          subnetId:
+            type: string
+            required: true
+      instanceCount:
+        type: number
+        default: 2
+        description: Count of CynosDB instance
+        allow:
+          - 1
+          - 2
+          - 3
+          - 4
+  remove:
+    definition: Remove CynosDB

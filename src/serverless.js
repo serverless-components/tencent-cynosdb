@@ -23,15 +23,20 @@ class ServerlessComponent extends Component {
   }
 
   async deploy(inputs) {
-    console.log(`Deploying ${CONFIGS.compName} Database...`)
+    console.log(`Deploying ${CONFIGS.compName} Database`)
 
     const credentials = this.getCredentials()
 
     // 对Inputs内容进行标准化
     const cynosInputs = await prepareInputs(inputs)
+    cynosInputs.clusterId = this.state.clusterId
     const client = new Cynosdb(credentials, cynosInputs.region)
     // 部署函数 + API网关
     const outputs = await client.deploy(cynosInputs)
+
+    if (this.state.adminPassword && !outputs.adminPassword) {
+      outputs.adminPassword = this.state.adminPassword
+    }
 
     // optimize outputs for one region
     this.state = outputs
@@ -40,19 +45,22 @@ class ServerlessComponent extends Component {
   }
 
   async remove() {
-    console.log(`Removing ${CONFIGS.compName} Database...`)
+    console.log(`Removing ${CONFIGS.compName} Database`)
 
     const { state } = this
+    const { clusterId } = state
+    if (clusterId) {
+      const credentials = this.getCredentials()
 
-    const credentials = this.getCredentials()
+      const client = new Cynosdb(credentials, state.region)
 
-    const client = new Cynosdb(credentials, state.region)
-
-    await client.remove({
-      clusterId: state.clusterId
-    })
+      await client.remove({
+        clusterId: state.clusterId
+      })
+    }
 
     this.state = {}
+    return {}
   }
 
   // only support reset root password

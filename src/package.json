@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "tencent-component-toolkit": "^1.17.0",
+    "tencent-component-toolkit": "^1.17.1",
     "type": "^2.1.0"
   }
 }
