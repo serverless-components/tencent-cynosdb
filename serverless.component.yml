@@ -1,5 +1,5 @@
 name: cynosdb
-version: 0.1.0
+version: 0.1.1
 author: 'Tencent Cloud, Inc.'
 org: 'Tencent Cloud, Inc.'
 description: Deploy a serverless cynosdb database.
@@ -51,5 +51,12 @@ actions:
           - 2
           - 3
           - 4
+      payMode:
+        type: number
+        default: 0
+        description: Pay mode
+        allow:
+          - 0
+          - 1
   remove:
     definition: Remove CynosDB
