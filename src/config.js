@@ -9,6 +9,7 @@ const CONFIGS = {
   memory: 1,
   storageLimit: 1000,
   instanceCount: 2,
+  payMode: 0,
   compName: 'PostgreSQL',
   compFullname: 'PostgreSQL'
 }

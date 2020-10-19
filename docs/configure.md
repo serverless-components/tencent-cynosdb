@@ -21,12 +21,13 @@ inputs:
 
 主要参数说明
 
-| 参数               | 必填/可选 | 类型   | 默认值 | 描述                 |
-| ------------------ | --------- | ------ | ------ | -------------------- |
-| region             | 必填      | string |        | 数据库的所属地区     |
-| zone               | 必填      | string |        | 数据库所在地区的区域 |
-| vpcConfig.vpcId    | 必填      | string |        | VPC 的 ID            |
-| vpcConfig.subnetId | 必填      | string |        | Subnet 的 ID         |
-| instanceCount      | 可选      | number | `2`    | 实例数量             |
+| 参数               | 必填/可选 | 类型   | 默认值 | 描述                                 |
+| ------------------ | --------- | ------ | ------ | ------------------------------------ |
+| region             | 必填      | string |        | 数据库的所属地区                     |
+| zone               | 必填      | string |        | 数据库所在地区的区域                 |
+| vpcConfig.vpcId    | 必填      | string |        | VPC 的 ID                            |
+| vpcConfig.subnetId | 必填      | string |        | Subnet 的 ID                         |
+| instanceCount      | 可选      | number | `2`    | 实例数量                             |
+| payMode            | 可选      | number | `0`    | 付费模式，0：按流量计费，1：包年包月 |
 
 > 当前支持可用区为：`ap-guangzhou-4`, `ap-beijing-3`, `ap-shanghai-2`, `ap-nanjing-1`

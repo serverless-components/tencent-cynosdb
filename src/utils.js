@@ -17,6 +17,7 @@ const prepareInputs = (inputs) => {
     inputs.memory = ensureNumber(inputs.memory, { default: CONFIGS.memory })
     inputs.storageLimit = ensureNumber(inputs.storageLimit, { default: CONFIGS.storageLimit })
     inputs.instanceCount = ensureNumber(inputs.instanceCount, { default: CONFIGS.instanceCount })
+    inputs.payMode = ensureNumber(inputs.payMode, { default: CONFIGS.payMode })
 
     inputs.vpcConfig = ensureObject(inputs.vpcConfig, {
       isOptional: false,
