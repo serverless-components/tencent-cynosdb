@@ -1,5 +1,5 @@
 name: cynosdb
-version: 0.1.1
+version: 0.2.0
 author: 'Tencent Cloud, Inc.'
 org: 'Tencent Cloud, Inc.'
 description: Deploy a serverless cynosdb database.
@@ -16,21 +16,17 @@ actions:
     inputs:
       region:
         type: string
-        default: ap-guangzhou
+        default: ap-shanghai
         description: Region for CynosDB deployed to
         allow:
-          - ap-guangzhou
           - ap-shanghai
-          - ap-beijing
           - ap-nanjing
       zone:
         type: string
-        default: ap-guangzhou-4
+        default: ap-shanghai-2
         description: Zone for CynosDB deployed to
         allow:
-          - ap-guangzhou-4
           - ap-shanghai-2
-          - ap-beijing-3
           - ap-nanjing-1
       vpcConfig:
         type: object
@@ -42,6 +38,44 @@ actions:
           subnetId:
             type: string
             required: true
+      dbMode:
+        type: string
+        default: SERVERLESSS
+        description: DB Type serverless or normal
+        allow:
+          - NORMAL
+          - POSTGRESQL
+      minCpu:
+        type: number
+        default: 0.5
+        description: min cpu number
+        allow:
+          - 0.25
+          - 0.5
+          - 1
+          - 2
+      maxCpu:
+        type: number
+        default: 2
+        description: max cpu number
+        allow:
+          - 0.5
+          - 1
+          - 2
+          - 4
+      autoPause:
+        type: string
+        default: yes
+        description: auto pause db cluster
+        allow:
+          - yes
+          - no
+      autoPauseDelay:
+        type: number
+        default: 3600
+        description: auto pause delay
+        min: 60
+      # below is unuse
       instanceCount:
         type: number
         default: 2
@@ -60,3 +94,5 @@ actions:
           - 1
   remove:
     definition: Remove CynosDB
+  resetpwd:
+    definition: Reset password

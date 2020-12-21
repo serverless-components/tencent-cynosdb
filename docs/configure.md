@@ -10,8 +10,9 @@ component: cynosdb # (必填) 组件名称，此处为 cynosdb
 name: cynosdbDemo # (必填) 实例名称
 
 inputs:
-  region: ap-guangzhou # 可选 ap-guangzhou, ap-shanghai, ap-beijing, ap-nanjing
-  zone: ap-guangzhou-2 # 可选 ap-guangzhou-4, ap-shanghai-2, ap-beijing-3, ap-nanjing-1
+  region: ap-shanghai # 可选 ap-shanghai, ap-nanjing
+  zone: ap-shanghai-2 # 可选 ap-shanghai-2, ap-nanjing-1
+  enablePublicAccess: false
   vpcConfig:
     vpcId: vpc-123
     subnetId: subnet-123
@@ -21,13 +22,12 @@ inputs:
 
 主要参数说明
 
-| 参数               | 必填/可选 | 类型   | 默认值 | 描述                                 |
-| ------------------ | --------- | ------ | ------ | ------------------------------------ |
-| region             | 必填      | string |        | 数据库的所属地区                     |
-| zone               | 必填      | string |        | 数据库所在地区的区域                 |
-| vpcConfig.vpcId    | 必填      | string |        | VPC 的 ID                            |
-| vpcConfig.subnetId | 必填      | string |        | Subnet 的 ID                         |
-| instanceCount      | 可选      | number | `2`    | 实例数量                             |
-| payMode            | 可选      | number | `0`    | 付费模式，0：按流量计费，1：包年包月 |
+| 参数               | 必选 | 类型    | 默认值  | 描述                 |
+| ------------------ | ---- | ------- | ------- | -------------------- |
+| region             | 是   | string  |         | 数据库的所属地区     |
+| zone               | 是   | string  |         | 数据库所在地区的区域 |
+| vpcConfig.vpcId    | 是   | string  |         | VPC 的 ID            |
+| vpcConfig.subnetId | 是   | string  |         | Subnet 的 ID         |
+| enablePublicAccess | 否   | boolean | `false` | 是否开启外网访问     |
 
-> 当前支持可用区为：`ap-guangzhou-4`, `ap-beijing-3`, `ap-shanghai-2`, `ap-nanjing-1`
+> Serverless Cynosdb 当前支持可用区为：`ap-shanghai-2`, `ap-nanjing-1`

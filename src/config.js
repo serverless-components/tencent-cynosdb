@@ -1,6 +1,6 @@
 const CONFIGS = {
-  region: 'ap-guangzhou',
-  zone: 'ap-guangzhou-4',
+  region: 'ap-shanghai',
+  zone: 'ap-shanghai-2',
   projectId: 0,
   dbVersion: '5.7',
   dbType: 'MYSQL',
@@ -8,10 +8,15 @@ const CONFIGS = {
   cpu: 1,
   memory: 1,
   storageLimit: 1000,
-  instanceCount: 2,
+  instanceCount: 1,
   payMode: 0,
-  compName: 'PostgreSQL',
-  compFullname: 'PostgreSQL'
+  dbMode: 'SERVERLESS',
+  minCpu: 0.5,
+  maxCpu: 2,
+  autoPause: 'yes',
+  autoPauseDelay: 3600, // default 1h
+  compName: 'CynosDB',
+  compFullname: 'CynosDB'
 }
 
 module.exports = CONFIGS

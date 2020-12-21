@@ -27,18 +27,15 @@ class ServerlessComponent extends Component {
 
     const credentials = this.getCredentials()
 
-    // 对Inputs内容进行标准化
     const cynosInputs = await prepareInputs(inputs)
     cynosInputs.clusterId = this.state.clusterId
     const client = new Cynosdb(credentials, cynosInputs.region)
-    // 部署函数 + API网关
     const outputs = await client.deploy(cynosInputs)
 
     if (this.state.adminPassword && !outputs.adminPassword) {
       outputs.adminPassword = this.state.adminPassword
     }
 
-    // optimize outputs for one region
     this.state = outputs
 
     return outputs

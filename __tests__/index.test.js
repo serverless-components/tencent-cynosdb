@@ -1,34 +1,23 @@
-const path = require('path')
-require('dotenv').config({
-  path: path.join(__dirname, '..', '.env.test')
-})
-const { generateId, getServerlessSdk } = require('./utils')
+const { generateId, getServerlessSdk } = require('./lib/utils')
 const PWD_CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@#$%^&*_-';
 const pwdReg = new RegExp(`[${PWD_CHARS}]{8,64}`);
 
-// set enough timeout for deployment to finish
-jest.setTimeout(300000)
-
-// the yaml file we're testing against
 const instanceYaml = {
   org: 'orgDemo',
   app: 'appDemo',
-  component: 'cynosdb',
+  component: 'cynosdb@dev',
   name: `cynosdb-integration-tests-${generateId()}`,
   stage: 'dev',
   inputs: {
-    region: 'ap-guangzhou',
-    zone: 'ap-guangzhou-4',
+    region: 'ap-shanghai',
+    zone: 'ap-shanghai-2',
     vpcConfig: {
-      vpcId: 'vpc-p2dlmlbj',
-      subnetId: 'subnet-a1v3k07o',
+      vpcId: 'vpc-mshegdk6',
+      subnetId: 'subnet-3la82w45',
     },
-    payMode: 0,
-    instanceCount: 1,
   }
 }
 
-// get credentials from process.env
 const credentials = {
   tencent: {
     SecretId: process.env.TENCENT_SECRET_ID,
@@ -36,36 +25,33 @@ const credentials = {
   }
 }
 
-// get serverless construct sdk
 const sdk = getServerlessSdk(instanceYaml.org)
 
-it('should successfully deploy cynosdb', async () => {
+it('should deploy cynosdb success', async () => {
   const instance = await sdk.deploy(instanceYaml, credentials)
   expect(instance).toBeDefined()
   expect(instance.instanceName).toEqual(instanceYaml.name)
 
   expect(instance.outputs).toEqual({
+    dbMode: 'SERVERLESS',
     region: instanceYaml.inputs.region,
     zone: instanceYaml.inputs.zone,
     vpcConfig: instanceYaml.inputs.vpcConfig,
     instanceCount: 1,
+    minCpu: 0.5,
+    maxCpu: 2,
     adminPassword: expect.stringMatching(pwdReg),
     clusterId: expect.stringContaining('cynosdbmysql-'),
     connection: {
       ip: expect.any(String),
       port: 3306,
-      readList: [
-        {
-          ip: expect.any(String),
-          port: 3306,
-        },
-      ],
+      readList: expect.any(Array),
     },
     vendorMessage: null,
   });
 })
 
-it('should successfully remove cynosdb', async () => {
+it('should remove cynosdb success', async () => {
   await sdk.remove(instanceYaml, credentials)
   result = await sdk.getInstance(instanceYaml.org, instanceYaml.stage, instanceYaml.app, instanceYaml.name)
 
