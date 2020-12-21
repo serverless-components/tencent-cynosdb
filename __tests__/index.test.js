@@ -31,7 +31,6 @@ it('should deploy cynosdb success', async () => {
   const instance = await sdk.deploy(instanceYaml, credentials)
   expect(instance).toBeDefined()
   expect(instance.instanceName).toEqual(instanceYaml.name)
-
   expect(instance.outputs).toEqual({
     dbMode: 'SERVERLESS',
     region: instanceYaml.inputs.region,
@@ -45,7 +44,6 @@ it('should deploy cynosdb success', async () => {
     connection: {
       ip: expect.any(String),
       port: 3306,
-      readList: expect.any(Array),
     },
     vendorMessage: null,
   });

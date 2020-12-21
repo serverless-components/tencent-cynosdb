@@ -28,7 +28,8 @@ class ServerlessComponent extends Component {
     const credentials = this.getCredentials()
 
     const cynosInputs = await prepareInputs(inputs)
-    cynosInputs.clusterId = this.state.clusterId
+    cynosInputs.clusterId = this.state.clusterId || inputs.clusterId
+
     const client = new Cynosdb(credentials, cynosInputs.region)
     const outputs = await client.deploy(cynosInputs)
 

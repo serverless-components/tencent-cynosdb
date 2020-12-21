@@ -38,6 +38,10 @@ actions:
           subnetId:
             type: string
             required: true
+      enablePublicAccess:
+        type: boolean
+        default: false
+        description: Enable public access
       dbMode:
         type: string
         default: SERVERLESSS
