@@ -48,7 +48,7 @@ actions:
         description: DB Type serverless or normal
         allow:
           - NORMAL
-          - POSTGRESQL
+          - SERVERLESS
       minCpu:
         type: number
         default: 0.5
