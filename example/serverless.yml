@@ -5,8 +5,8 @@ component: cynosdb
 name: cynosdbDemo
 
 inputs:
-  region: ap-guangzhou
-  zone: ap-guangzhou-4
+  region: ap-shanghai
+  zone: ap-shanghai-2
   vpcConfig:
-    vpcId: 'vpc-p2dlmlbj'
-    subnetId: 'subnet-a1v3k07o'
+    vpcId: 'vpc-mshegdk6'
+    subnetId: 'subnet-3la82w45'

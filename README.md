@@ -4,18 +4,14 @@
 
 腾讯云 CynosDB 组件通过使用 [Serverless Framework](https://github.com/serverless/components)，基于云上 Serverless 服务，可以快速方便的创建，部署和管理腾讯云的 Cynosdb 产品。
 
-特性介绍：
-
-- [x] **按需付费** - 按照请求的使用量进行收费，没有请求时无需付费。
-- [x] **极速部署** - 仅需几秒，创建或更新您的数据库。
-- [x] **便捷协作** - 通过云端数据库的状态信息和部署日志，方便的进行多人协作开发。
-
 ## 快速开始
 
 1. [安装](#1-安装)
 2. [创建](#2-创建)
 3. [配置](#3-配置)
-4. [部署](#4-部署)
+4. [部署](#4-部署)  
+   4.1 [开启外网访问](#4.1-开启外网访问)  
+   4.2 [重置密码](#4.2-重置密码)
 5. [查看状态](#5-查看状态)
 6. [移除](#6-移除)
 
@@ -23,7 +19,7 @@
 
 通过 npm 全局安装 最新版本的 Serverless Framework
 
-```shell
+```bash
 $ npm install -g serverless
 ```
 
@@ -31,7 +27,7 @@ $ npm install -g serverless
 
 创建并进入一个全新目录：
 
-```
+```bash
 $ mkdir tencent-cynosdb && cd tencent-cynosdb
 ```
 
@@ -39,7 +35,7 @@ $ mkdir tencent-cynosdb && cd tencent-cynosdb
 
 在新目录下创建 `serverless.yml` 文件，在其中进行如下配置
 
-```shell
+```bash
 $ touch serverless.yml
 ```
 
@@ -71,15 +67,50 @@ inputs:
 
 > 注：`sls`命令是`serverless`命令的缩写
 
-```
+```bash
 $ sls deploy
+```
+
+#### 4.1 开启外网访问
+
+如果需要 serverless cynosdb 实例开启外网访问，只需添加 `enablePublicAccess` 配置为 `true`，如下：
+
+```yml
+# serverless.yml
+org: orgDemo
+app: appDemo
+stage: dev
+component: cynosdb
+name: cynosdbDemo
+
+inputs:
+  region: ap-guangzhou
+  zone: ap-guangzhou-4
+  enablePublicAccess: true
+  vpcConfig:
+    vpcId: vpc-xxx
+    subnetId: subnet-xxx
+```
+
+然后重新执行部署：
+
+```bash
+$ sls deploy
+```
+
+#### 4.2 重置密码
+
+组件只支持重置 `root` 用户密码，比如需要将密码重置为 `123456@abc` 只需运行如下命令:
+
+```bash
+$ sls resetpwd --inputs adminPassword=123456@abc
 ```
 
 ### 5. 查看状态
 
 在`serverless.yml`文件所在的目录下，通过如下命令查看部署状态：
 
-```
+```bash
 $ sls info
 ```
 
