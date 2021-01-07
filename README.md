@@ -98,6 +98,10 @@ inputs:
 $ sls deploy
 ```
 
+> **说明**：如果鉴权失败，请参考 [权限配置](https://cloud.tencent.com/document/product/1154/43006) 进行授权。
+
+部署成功后控制台输出参数介绍请参考 [output 文档](https://github.com/serverless-components/tencent-cynosdb/blob/master/docs/output.md)
+
 #### 4.2 重置密码
 
 组件只支持重置 `root` 用户密码，比如需要将密码重置为 `123456@abc` 只需运行如下命令:

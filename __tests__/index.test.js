@@ -45,6 +45,13 @@ it('should deploy cynosdb success', async () => {
       ip: expect.any(String),
       port: 3306,
     },
+    instances: [{
+      id: expect.stringContaining('cynosdbmysql-ins-'),
+      name: expect.stringContaining('cynosdbmysql-ins-'),
+      role: 'master',
+      type: 'rw',
+      status: 'running',
+    }],
     vendorMessage: null,
   });
 })
