@@ -1,3 +1,10 @@
+## [0.2.1](https://github.com/serverless-components/tencent-cynosdb/compare/v0.2.0...v0.2.1) (2021-01-08)
+
+
+### Bug Fixes
+
+* add instances output ([68ab5f0](https://github.com/serverless-components/tencent-cynosdb/commit/68ab5f040afc3b7f3e44ccfc9aa6fa5f60ffb11c))
+
 # [0.2.0](https://github.com/serverless-components/tencent-cynosdb/compare/v0.1.1...v0.2.0) (2020-12-23)
 
 
