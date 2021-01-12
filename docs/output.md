@@ -15,18 +15,6 @@
 | publicConnection | [PublicConnection](#PublicConnection) | VPC 下连接配置参数                   |
 | instances        | [Instance](#Instance)[]               | 集群下实例列表                       |
 
-connection:
-ip: 172.17.0.43
-port: 3306
-instances:
-
--     id:     cynosdbmysql-ins-rk0e6ogl
-      name:   cynosdbmysql-ins-rk0e6ogl
-      role:   master
-      type:   rw
-      status: running
-  adminPassword: cq8T5SN4
-
 ### Vpc
 
 | 名称     |  类型  | 描述            |
