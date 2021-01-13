@@ -10,8 +10,8 @@ component: cynosdb # (必填) 组件名称，此处为 cynosdb
 name: cynosdbDemo # (必填) 实例名称
 
 inputs:
-  region: ap-shanghai # 可选 ap-shanghai, ap-nanjing
-  zone: ap-shanghai-2 # 可选 ap-shanghai-2, ap-nanjing-1
+  region: ap-shanghai # 可选 ap-guangzhou, ap-shanghai, ap-nanjing
+  zone: ap-shanghai-2 # 可选 ap-guangzhou-4, ap-shanghai-2, ap-beijing-3, ap-nanjing-1
   enablePublicAccess: false
   vpcConfig:
     vpcId: vpc-123
@@ -30,4 +30,4 @@ inputs:
 | vpcConfig.subnetId | 是   | string  |         | Subnet 的 ID         |
 | enablePublicAccess | 否   | boolean | `false` | 是否开启外网访问     |
 
-> Serverless Cynosdb 当前支持可用区为：`ap-shanghai-2`, `ap-nanjing-1`
+> Serverless Cynosdb 当前支持可用区为：`ap-guangzhou-4`, `ap-shanghai-2`, `ap-beijing-3`, `ap-nanjing-1`
