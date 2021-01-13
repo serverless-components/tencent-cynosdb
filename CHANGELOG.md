@@ -1,3 +1,10 @@
+## [0.2.2](https://github.com/serverless-components/tencent-cynosdb/compare/v0.2.1...v0.2.2) (2021-01-13)
+
+
+### Bug Fixes
+
+* support new zone ([8c2f211](https://github.com/serverless-components/tencent-cynosdb/commit/8c2f2117dfe067684e4acc4dbc99e6ac6acf3ec1))
+
 ## [0.2.1](https://github.com/serverless-components/tencent-cynosdb/compare/v0.2.0...v0.2.1) (2021-01-08)
 
 
