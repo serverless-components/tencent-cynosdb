@@ -1,5 +1,5 @@
 name: cynosdb
-version: 0.2.1
+version: 0.2.2
 author: 'Tencent Cloud, Inc.'
 org: 'Tencent Cloud, Inc.'
 description: Deploy a serverless cynosdb database.
@@ -19,15 +19,14 @@ actions:
         default: ap-shanghai
         description: Region for CynosDB deployed to
         allow:
+          - ap-guangzhou
           - ap-shanghai
+          - ap-beijing
           - ap-nanjing
       zone:
         type: string
         default: ap-shanghai-2
         description: Zone for CynosDB deployed to
-        allow:
-          - ap-shanghai-2
-          - ap-nanjing-1
       vpcConfig:
         type: object
         description: VPC config
