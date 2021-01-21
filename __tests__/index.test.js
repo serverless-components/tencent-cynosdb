@@ -27,7 +27,7 @@ const credentials = {
 
 const sdk = getServerlessSdk(instanceYaml.org)
 
-it('should deploy cynosdb success', async () => {
+it('[serverless] deploy cynosdb success', async () => {
   const instance = await sdk.deploy(instanceYaml, credentials)
   expect(instance).toBeDefined()
   expect(instance.instanceName).toEqual(instanceYaml.name)
@@ -56,7 +56,50 @@ it('should deploy cynosdb success', async () => {
   });
 })
 
-it('should remove cynosdb success', async () => {
+it('[serverless] remove cynosdb success', async () => {
+  await sdk.remove(instanceYaml, credentials)
+  result = await sdk.getInstance(instanceYaml.org, instanceYaml.stage, instanceYaml.app, instanceYaml.name)
+
+  expect(result.instance.instanceStatus).toEqual('inactive')
+})
+
+it('[normal] deploy cynosdb success', async () => {
+  instanceYaml.inputs.dbMode = 'NORMAL'
+  instanceYaml.inputs.payMode = 0
+
+  const instance = await sdk.deploy(instanceYaml, credentials)
+  expect(instance).toBeDefined()
+  expect(instance.instanceName).toEqual(instanceYaml.name)
+  expect(instance.outputs).toEqual({
+    dbMode: 'NORMAL',
+    region: instanceYaml.inputs.region,
+    zone: instanceYaml.inputs.zone,
+    vpcConfig: instanceYaml.inputs.vpcConfig,
+    instanceCount: 1,
+    adminPassword: expect.stringMatching(pwdReg),
+    clusterId: expect.stringContaining('cynosdbmysql-'),
+    connection: {
+      ip: expect.any(String),
+      port: 3306,
+      readList: [
+        {
+          ip: expect.any(String),
+          port: 3306,
+        }
+      ]
+    },
+    instances: [{
+      id: expect.stringContaining('cynosdbmysql-ins-'),
+      name: expect.stringContaining('cynosdbmysql-ins-'),
+      role: 'master',
+      type: 'rw',
+      status: 'running',
+    }],
+    vendorMessage: null,
+  });
+})
+
+it('[normal] remove cynosdb success', async () => {
   await sdk.remove(instanceYaml, credentials)
   result = await sdk.getInstance(instanceYaml.org, instanceYaml.stage, instanceYaml.app, instanceYaml.name)
 

@@ -1,0 +1,14 @@
+org: orgDemo
+app: appDemo
+stage: dev
+component: cynosdb
+name: cynosdbDemo
+
+inputs:
+  region: ap-shanghai
+  zone: ap-shanghai-2
+  dbMode: NORMAL
+  payMode: 0
+  vpcConfig:
+    vpcId: 'vpc-mshegdk6'
+    subnetId: 'subnet-3la82w45'

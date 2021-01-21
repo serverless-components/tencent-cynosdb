@@ -13,7 +13,7 @@ const prepareInputs = (inputs) => {
   inputs.storageLimit = inputs.storageLimit || CONFIGS.storageLimit
   inputs.instanceCount = inputs.instanceCount || CONFIGS.instanceCount
   inputs.payMode = inputs.payMode || CONFIGS.payMode
-  inputs.dbMode = CONFIGS.dbMode
+  inputs.dbMode = inputs.dbMode || CONFIGS.dbMode
   inputs.minCpu = inputs.minCpu || CONFIGS.minCpu
   inputs.maxCpu = inputs.maxCpu || CONFIGS.maxCpu
   inputs.autoPause = inputs.autoPause || CONFIGS.autoPause
