@@ -1,3 +1,10 @@
+## [0.2.3](https://github.com/serverless-components/tencent-cynosdb/compare/v0.2.2...v0.2.3) (2021-01-21)
+
+
+### Bug Fixes
+
+* support create normal db ([674e7f0](https://github.com/serverless-components/tencent-cynosdb/commit/674e7f0b96867a2be6c87bdc847ae47bbf1a9b1d))
+
 ## [0.2.2](https://github.com/serverless-components/tencent-cynosdb/compare/v0.2.1...v0.2.2) (2021-01-13)
 
 
