@@ -1,5 +1,5 @@
 name: cynosdb
-version: 0.2.3
+version: 0.2.4
 author: 'Tencent Cloud, Inc.'
 org: 'Tencent Cloud, Inc.'
 description: Deploy a serverless cynosdb database.
