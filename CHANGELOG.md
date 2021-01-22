@@ -1,3 +1,10 @@
+## [0.2.4](https://github.com/serverless-components/tencent-cynosdb/compare/v0.2.3...v0.2.4) (2021-01-22)
+
+
+### Bug Fixes
+
+* add offline for remove ([dc95415](https://github.com/serverless-components/tencent-cynosdb/commit/dc954150a54292e9bb985c55a061f2df64373dcc))
+
 ## [0.2.3](https://github.com/serverless-components/tencent-cynosdb/compare/v0.2.2...v0.2.3) (2021-01-21)
 
 
